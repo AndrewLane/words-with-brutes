@@ -45,6 +45,7 @@
     <Compile Include="Model\BoardConfiguration.cs" />
     <Compile Include="Model\Challenge.cs" />
     <Compile Include="Model\PlayedTile.cs" />
+    <Compile Include="Model\PlayedWord.cs" />
     <Compile Include="Model\Rack.cs" />
     <Compile Include="Model\SpecialTile.cs" />
     <Compile Include="Model\TileLocation.cs" />
