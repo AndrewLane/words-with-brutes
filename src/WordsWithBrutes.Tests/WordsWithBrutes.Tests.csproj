@@ -47,10 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Impl\TestDetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Impl\" />
+    <ProjectReference Include="..\WordsWithBrutes\WordsWithBrutes.csproj">
+      <Project>{c2a09e6a-f94b-490a-9a91-0209b87b911f}</Project>
+      <Name>WordsWithBrutes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
