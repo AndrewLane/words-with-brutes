@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Impl\DetermineIfAStringIsAPlayableWord.cs" />
+    <Compile Include="Components\IDetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Enum\SpecialTileType.cs" />
     <Compile Include="Model\BoardConfiguration.cs" />
     <Compile Include="Model\Challenge.cs" />
