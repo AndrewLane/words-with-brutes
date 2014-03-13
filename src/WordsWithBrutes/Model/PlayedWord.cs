@@ -7,6 +7,14 @@ namespace WordsWithBrutes.Model
     /// </summary>
     public class PlayedWord
     {
+        /// <summary>
+        /// The actual tiles that were used for this play
+        /// </summary>
         public IEnumerable<PlayedTile> TilesPlayed { get; set; }
+
+        /// <summary>
+        /// The list of words created by this play (might be multiple)
+        /// </summary>
+        public IEnumerable<string> WordsThisCreates { get; set; }
     }
 }
