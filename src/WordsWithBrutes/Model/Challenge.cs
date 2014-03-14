@@ -10,7 +10,7 @@ namespace WordsWithBrutes.Model
         /// <summary>
         /// The number of tiles that go on your rack at one time, and thus the max you can play for a single word
         /// </summary>
-        public int MaxWordLength { get; set; }
+        public int MaxRackLength { get; set; }
 
         /// <summary>
         /// How the board is set up in terms of special tiles
@@ -33,8 +33,8 @@ namespace WordsWithBrutes.Model
         public IEnumerable<PlayedTile> StartingTiles { get; set; }
 
         /// <summary>
-        /// The number of bonus points received for playing a word with length of MaxWordLength
+        /// The number of bonus points received for playing a word with length of MaxRackLength
         /// </summary>
-        public int MaxWordLengthBonus { get; set; }
+        public int MaxRackLengthBonus { get; set; }
     }
 }
