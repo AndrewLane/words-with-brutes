@@ -55,6 +55,7 @@
     <Compile Include="Components\IDeterminePotentialPlayLocationsForNextWord.cs" />
     <Compile Include="Components\Impl\DetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Components\IDetermineIfAStringIsAPlayableWord.cs" />
+    <Compile Include="Components\Impl\DeterminePotentialPlayLocationsForNextWord.cs" />
     <Compile Include="Components\ITransformGameStateIntoTwoDimensionalArray.cs" />
     <Compile Include="Enum\PlayedWordDirection.cs" />
     <Compile Include="Enum\SpecialTileType.cs" />
