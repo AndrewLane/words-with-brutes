@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\IDeterminePotentialPlayLocationsForNextWord.cs" />
+    <Compile Include="Components\IGenerateWordsToTryForPotentialPlayLocation.cs" />
     <Compile Include="Components\Impl\DetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Components\IDetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Components\Impl\DeterminePotentialPlayLocationsForNextWord.cs" />
