@@ -28,6 +28,10 @@ namespace WordsWithBrutes.Components
     /// </summary>
     public interface ITransformGameStateIntoTwoDimensionalArray
     {
+        /// <summary>
+        /// Transforms a GameState into a multi-dimensional array of occupied/not-occupied flags for the purposes of determining where
+        /// a future legal play can be made.
+        /// </summary>
         bool[,] Transform(GameState gameState);
     }
 }

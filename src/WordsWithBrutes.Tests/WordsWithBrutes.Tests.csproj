@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Components\Impl\TestDetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Components\Impl\TestDeterminePotentialPlayLocationsForNextWord.cs" />
+    <Compile Include="Components\Impl\TestTransformGameStateIntoTwoDimensionalArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
