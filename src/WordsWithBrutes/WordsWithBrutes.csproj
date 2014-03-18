@@ -40,6 +40,9 @@
     <Reference Include="Castle.Windsor">
       <HintPath>packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Combinatorics">
+      <HintPath>packages\Combinatorics.1.0.3.2\lib\net40\Combinatorics.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -52,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Impl\GenerateStringPermutations.cs" />
+    <Compile Include="Components\IGenerateStringPermutations.cs" />
     <Compile Include="Components\IDeterminePotentialPlayLocationsForNextWord.cs" />
     <Compile Include="Components\IGenerateWordsToTryForPotentialPlayLocation.cs" />
     <Compile Include="Components\Impl\DetermineIfAStringIsAPlayableWord.cs" />
