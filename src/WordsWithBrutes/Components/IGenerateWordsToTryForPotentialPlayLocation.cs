@@ -8,6 +8,9 @@ namespace WordsWithBrutes.Components
     /// </summary>
     public interface IGenerateWordsToTryForPotentialPlayLocation
     {
-        IEnumerable<PlayedWord> Generate(PotentialPlayLocation playLocation);
+        /// <summary>
+        /// Generates all the permutations of possible words to try given a PotentialPlayLocation object
+        /// </summary>
+        IEnumerable<PlayedWord> Generate(Challenge challenge, PotentialPlayLocation playLocation, char[] lettersOnRack);
     }
 }

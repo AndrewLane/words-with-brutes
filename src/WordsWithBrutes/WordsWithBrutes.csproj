@@ -55,8 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\IDetermineTheWordsCreatedByAPlay.cs" />
     <Compile Include="Components\Impl\GenerateStringPermutations.cs" />
     <Compile Include="Components\IGenerateStringPermutations.cs" />
+    <Compile Include="Components\Impl\GenerateWordsToTryForPotentialPlayLocation.cs" />
     <Compile Include="Components\IDeterminePotentialPlayLocationsForNextWord.cs" />
     <Compile Include="Components\IGenerateWordsToTryForPotentialPlayLocation.cs" />
     <Compile Include="Components\Impl\DetermineIfAStringIsAPlayableWord.cs" />
