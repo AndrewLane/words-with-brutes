@@ -32,6 +32,11 @@ namespace WordsWithBrutes.Components
         /// Transforms a GameState into a multi-dimensional array of occupied/not-occupied flags for the purposes of determining where
         /// a future legal play can be made.
         /// </summary>
-        bool[,] Transform(GameState gameState);
+        bool[,] TransformIntoBoolMultiArray(GameState gameState);
+
+        /// <summary>
+        /// Transforms a GameState into a multi-dimensional array of characters
+        /// </summary>
+        char[,] TransformIntoCharMultiArray(GameState gameState);
     }
 }

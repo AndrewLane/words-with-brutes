@@ -29,7 +29,7 @@ namespace WordsWithBrutes.Components.Impl
             int maxLettersThatCanBeUsed = Math.Min(gameState.Challenge.MaxRackLength, gameState.CurrentRack.Tiles.Count);
 
             //convert the game state into a 2-d array and let another method take over
-            return GetPlacesToPlayNextWord(_gameStateIntoTwoDimensionalArrayTransformer.Transform(gameState), maxLettersThatCanBeUsed);
+            return GetPlacesToPlayNextWord(_gameStateIntoTwoDimensionalArrayTransformer.TransformIntoBoolMultiArray(gameState), maxLettersThatCanBeUsed);
         }
 
         /// <summary>

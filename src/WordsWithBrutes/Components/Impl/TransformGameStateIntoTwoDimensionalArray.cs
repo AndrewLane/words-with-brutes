@@ -9,12 +9,25 @@ namespace WordsWithBrutes.Components.Impl
         /// Transforms a GameState into a multi-dimensional array of occupied/not-occupied flags for the purposes of determining where
         /// a future legal play can be made.
         /// </summary>
-        public bool[,] Transform(GameState gameState)
+        public bool[,] TransformIntoBoolMultiArray(GameState gameState)
         {
             var transformation = new bool[gameState.Challenge.BoardConfiguration.Width, gameState.Challenge.BoardConfiguration.Height];
             foreach (var tilePlayed in gameState.PlayedWords.SelectMany(playedWord => playedWord.TilesPlayed))
             {
                 transformation[tilePlayed.Location.X, tilePlayed.Location.Y] = true;
+            }
+            return transformation;
+        }
+
+        /// <summary>
+        /// Transforms a GameState into a multi-dimensional array of characters
+        /// </summary>
+        public char[,] TransformIntoCharMultiArray(GameState gameState)
+        {
+            var transformation = new char[gameState.Challenge.BoardConfiguration.Width, gameState.Challenge.BoardConfiguration.Height];
+            foreach (var tilePlayed in gameState.PlayedWords.SelectMany(playedWord => playedWord.TilesPlayed))
+            {
+                transformation[tilePlayed.Location.X, tilePlayed.Location.Y] = tilePlayed.Letter;
             }
             return transformation;
         }

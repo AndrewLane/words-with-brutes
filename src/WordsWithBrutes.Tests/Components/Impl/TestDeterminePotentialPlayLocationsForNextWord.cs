@@ -137,7 +137,7 @@ XXXXX";
 
             //set up our ITransformGameStateIntoTwoDimensionalArray object to return our multi-dimensional array
             var mockArrayTransformer = new Mock<ITransformGameStateIntoTwoDimensionalArray>(MockBehavior.Strict);
-            mockArrayTransformer.Setup(mock => mock.Transform(intputGameState)).Returns(inputMultiArray);
+            mockArrayTransformer.Setup(mock => mock.TransformIntoBoolMultiArray(intputGameState)).Returns(inputMultiArray);
 
             var objectUnderTest = new DeterminePotentialPlayLocationsForNextWord(mockArrayTransformer.Object);
 
@@ -172,7 +172,7 @@ XXXXX";
 
             //set up our ITransformGameStateIntoTwoDimensionalArray object to return our multi-dimensional array
             var mockArrayTransformer = new Mock<ITransformGameStateIntoTwoDimensionalArray>(MockBehavior.Strict);
-            mockArrayTransformer.Setup(mock => mock.Transform(intputGameState)).Returns(inputMultiArray);
+            mockArrayTransformer.Setup(mock => mock.TransformIntoBoolMultiArray(intputGameState)).Returns(inputMultiArray);
 
             var objectUnderTest = new DeterminePotentialPlayLocationsForNextWord(mockArrayTransformer.Object);
 
@@ -205,7 +205,7 @@ XXXXX";
 
             //set up our ITransformGameStateIntoTwoDimensionalArray object to return our multi-dimensional array
             var mockArrayTransformer = new Mock<ITransformGameStateIntoTwoDimensionalArray>(MockBehavior.Strict);
-            mockArrayTransformer.Setup(mock => mock.Transform(intputGameState)).Returns(inputMultiArray);
+            mockArrayTransformer.Setup(mock => mock.TransformIntoBoolMultiArray(intputGameState)).Returns(inputMultiArray);
 
             var objectUnderTest = new DeterminePotentialPlayLocationsForNextWord(mockArrayTransformer.Object);
 
