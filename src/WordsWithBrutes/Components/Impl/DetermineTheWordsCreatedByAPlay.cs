@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Castle.Core.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Castle.Core.Internal;
-using WordsWithBrutes.Enum;
 using WordsWithBrutes.Model;
 
 namespace WordsWithBrutes.Components.Impl
@@ -37,32 +36,14 @@ namespace WordsWithBrutes.Components.Impl
                 existingWords[playedTile.Location.X, playedTile.Location.Y] = playedTile.Letter;
             }
 
-            //determine if the word was played vertically or horizontally
-            var directionOfPlayedWord = playedTiles.Select(playedTile => playedTile.Location.Y).Distinct().Count() > 1
-                ? WordDirection.Vertical
-                : WordDirection.Horizontal;
+            //loop through all the played tiles and look for horizontal and vertical words
+            playedWords.AddRange(
+                playedTiles.Select(playedTile => GetHorizontalWord(existingWords, playedTile.Location))
+                    .Where(possibleNewWord => possibleNewWord.IsNullOrEmpty() == false));
+            playedWords.AddRange(
+                playedTiles.Select(playedTile => GetVerticalWord(existingWords, playedTile.Location))
+                    .Where(possibleNewWord => possibleNewWord.IsNullOrEmpty() == false));
 
-            if (directionOfPlayedWord == WordDirection.Vertical)
-            {
-                //add the vertical word that was played
-                playedWords.Add(GetVerticalWord(existingWords, playedTiles.First().Location));
-
-                //loop through all the played tiles and see if any horizontal words were formed
-                playedWords.AddRange(
-                    playedTiles.Select(playedTile => GetHorizontalWord(existingWords, playedTile.Location))
-                        .Where(possibleNewWord => possibleNewWord.IsNullOrEmpty() == false));
-            }
-            else
-            {
-                //add the horizontal word that was played
-                playedWords.Add(GetHorizontalWord(existingWords, playedTiles.First().Location));
-
-                //loop through all the played tiles and see if any vertical words were formed
-                playedWords.AddRange(
-                    playedTiles.Select(playedTile => GetVerticalWord(existingWords, playedTile.Location))
-                        .Where(possibleNewWord => possibleNewWord.IsNullOrEmpty() == false));
-                
-            }
             return playedWords.Distinct();
         }
 
