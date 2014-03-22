@@ -11,6 +11,6 @@ namespace WordsWithBrutes.Components
         /// <summary>
         /// Generates all the permutations of possible words to try given a PotentialPlayLocation object
         /// </summary>
-        IEnumerable<PlayedWord> Generate(Challenge challenge, PotentialPlayLocation playLocation, char[] lettersOnRack);
+        IEnumerable<PlayedWord> Generate(GameState gameState, PotentialPlayLocation playLocation, char[] lettersOnRack);
     }
 }

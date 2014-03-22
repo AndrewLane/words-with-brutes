@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Impl\DetermineTheWordsCreatedByAPlay.cs" />
     <Compile Include="Components\IDetermineTheWordsCreatedByAPlay.cs" />
     <Compile Include="Components\Impl\GenerateStringPermutations.cs" />
     <Compile Include="Components\IGenerateStringPermutations.cs" />

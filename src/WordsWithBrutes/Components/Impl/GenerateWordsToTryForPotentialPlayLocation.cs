@@ -23,7 +23,7 @@ namespace WordsWithBrutes.Components.Impl
         /// <summary>
         /// Generates all the permutations of possible words to try given a PotentialPlayLocation object
         /// </summary>
-        public IEnumerable<PlayedWord> Generate(Challenge challenge, PotentialPlayLocation playLocation, char[] lettersOnRack)
+        public IEnumerable<PlayedWord> Generate(GameState gameState, PotentialPlayLocation playLocation, char[] lettersOnRack)
         {
             //use recursion to deal with any blanks
             for (int i = 0; i < lettersOnRack.Length; i++)
@@ -38,7 +38,7 @@ namespace WordsWithBrutes.Components.Impl
                 {
                     var deepCopyOfLettersOnRack = (char[])lettersOnRack.Clone();
                     deepCopyOfLettersOnRack[i] = j;
-                    possibleWords.AddRange(Generate(challenge, playLocation, deepCopyOfLettersOnRack));
+                    possibleWords.AddRange(Generate(gameState, playLocation, deepCopyOfLettersOnRack));
                 }
                 return possibleWords;
             }
@@ -63,7 +63,7 @@ namespace WordsWithBrutes.Components.Impl
                     tileCounter++;
                 }
 
-                result.Add(new PlayedWord { TilesPlayed = tilesPlayed, WordsThisCreates = _wordsCreatedByAPlayFetcher.GetPlayedWords(challenge, tilesPlayed) });
+                result.Add(new PlayedWord {TilesPlayed = tilesPlayed, WordsThisCreates = _wordsCreatedByAPlayFetcher.GetPlayedWords(gameState, tilesPlayed)});
             }
 
             return result;

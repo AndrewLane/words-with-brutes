@@ -8,6 +8,9 @@ namespace WordsWithBrutes.Components
     /// </summary>
     public interface IDetermineTheWordsCreatedByAPlay
     {
-        IEnumerable<string> GetPlayedWords(Challenge challenge, IEnumerable<PlayedTile> playedTiles);
+        /// <summary>
+        /// Gets all the words formed by the given play
+        /// </summary>
+        IEnumerable<string> GetPlayedWords(GameState gameState, IEnumerable<PlayedTile> playedTiles);
     }
 }

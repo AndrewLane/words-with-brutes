@@ -16,7 +16,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
     [TestFixture]
     public class TestGenerateWordsToTryForPotentialPlayLocation
     {
-        private static readonly Challenge DummyChallenge = new Challenge();
+        private static readonly GameState DummyGameState = new GameState();
         private static readonly string[] DummyWordsCreated = { "test", "testing" };
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
         {
             var objectUnderTest = GetObjectUnderTest();
             var result =
-                objectUnderTest.Generate(DummyChallenge, new PotentialPlayLocation { TileLocations = new List<TileLocation> { new TileLocation { X = 0, Y = 1 } } },
+                objectUnderTest.Generate(DummyGameState, new PotentialPlayLocation { TileLocations = new List<TileLocation> { new TileLocation { X = 0, Y = 1 } } },
                     new[] { WordsWithBrutesConstants.BlankTile }).ToList();
 
             //make sure 26 results got generated
@@ -60,7 +60,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
         {
             var objectUnderTest = GetObjectUnderTest();
             var result =
-                objectUnderTest.Generate(DummyChallenge,
+                objectUnderTest.Generate(DummyGameState,
                     new PotentialPlayLocation { TileLocations = new List<TileLocation> { new TileLocation { X = 0, Y = 0 }, new TileLocation { X = 0, Y = 1 } } },
                     new[] { WordsWithBrutesConstants.BlankTile, WordsWithBrutesConstants.BlankTile }).ToList();
 
@@ -103,7 +103,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
         {
             var objectUnderTest = GetObjectUnderTest();
             var result =
-                objectUnderTest.Generate(DummyChallenge,
+                objectUnderTest.Generate(DummyGameState,
                     new PotentialPlayLocation { TileLocations = new List<TileLocation> { new TileLocation { X = 0, Y = 0 }, new TileLocation { X = 0, Y = 1 } } },
                     new[] { 'A', 'B' }).ToList();
 
@@ -128,7 +128,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
         public void TestGenerateWithTwoCopiesOfALetterAndAnotherLetterInTwoSpots()
         {
             var objectUnderTest = GetObjectUnderTest();
-            var result = objectUnderTest.Generate(DummyChallenge,
+            var result = objectUnderTest.Generate(DummyGameState,
                 new PotentialPlayLocation { TileLocations = new List<TileLocation> { new TileLocation { X = 0, Y = 0 }, new TileLocation { X = 0, Y = 1 } } },
                 new[] { 'A', 'A', 'B' }).ToList();
 
@@ -153,7 +153,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
         private GenerateWordsToTryForPotentialPlayLocation GetObjectUnderTest()
         {
             var mockedIDetermineTheWordsCreatedByAPlay = new Mock<IDetermineTheWordsCreatedByAPlay>(MockBehavior.Strict);
-            mockedIDetermineTheWordsCreatedByAPlay.Setup(mock => mock.GetPlayedWords(DummyChallenge, It.IsAny<IEnumerable<PlayedTile>>()))
+            mockedIDetermineTheWordsCreatedByAPlay.Setup(mock => mock.GetPlayedWords(DummyGameState, It.IsAny<IEnumerable<PlayedTile>>()))
                 .Returns(DummyWordsCreated);
 
             //i'm actually usign the GenerateStringPermutations class here instead of a mock...I realize this means I'm testing more than
