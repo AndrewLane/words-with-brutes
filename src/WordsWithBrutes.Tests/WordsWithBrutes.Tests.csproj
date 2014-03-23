@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Components\Impl\TestDetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Components\Impl\TestDeterminePotentialPlayLocationsForNextWord.cs" />
-    <Compile Include="Components\Impl\TestDetermineTheWordsCreatedByAPlay.cs" />
+    <Compile Include="Components\Impl\TestDetermineTotalPointsAndTheWordsCreatedByAPlay.cs" />
     <Compile Include="Components\Impl\TestGenerateStringPermutations.cs" />
     <Compile Include="Components\Impl\TestGenerateWordsToTryForPotentialPlayLocation.cs" />
     <Compile Include="Components\Impl\TestTransformGameStateIntoTwoDimensionalArray.cs" />

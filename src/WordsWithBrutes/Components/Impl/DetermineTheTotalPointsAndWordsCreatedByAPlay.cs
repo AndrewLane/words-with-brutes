@@ -7,20 +7,20 @@ using WordsWithBrutes.Model;
 
 namespace WordsWithBrutes.Components.Impl
 {
-    internal class DetermineTheWordsCreatedByAPlay : IDetermineTheWordsCreatedByAPlay
+    internal class DetermineTheTotalPointsAndWordsCreatedByAPlay : IDetermineTheTotalPointsAndWordsCreatedByAPlay
     {
         private readonly ITransformGameStateIntoTwoDimensionalArray _gameStateTransformer;
 
-        public DetermineTheWordsCreatedByAPlay(ITransformGameStateIntoTwoDimensionalArray gameStateTransformer)
+        public DetermineTheTotalPointsAndWordsCreatedByAPlay(ITransformGameStateIntoTwoDimensionalArray gameStateTransformer)
         {
             if (gameStateTransformer == null) throw new ArgumentNullException("gameStateTransformer");
             _gameStateTransformer = gameStateTransformer;
         }
 
         /// <summary>
-        /// Gets all the words formed by the given play
+        /// Gets all the word(s) formed by the given play as well as the points earned for those word(s)
         /// </summary>
-        public IEnumerable<string> GetPlayedWords(GameState gameState, IEnumerable<PlayedTile> playedTiles)
+        public WordsPlayedAndPointsScored GetPlayedWordsAndTotalPoints(GameState gameState, IEnumerable<PlayedTile> playedTiles)
         {
             //harden the list since we'll enumerate it many times
             playedTiles = playedTiles.ToList();
@@ -44,7 +44,10 @@ namespace WordsWithBrutes.Components.Impl
                 playedTiles.Select(playedTile => GetVerticalWord(existingWords, playedTile.Location))
                     .Where(possibleNewWord => possibleNewWord.IsNullOrEmpty() == false));
 
-            return playedWords.Distinct();
+            return new WordsPlayedAndPointsScored
+            {
+                WordsPlayed = playedWords.Distinct()
+            };
         }
 
         /// <summary>

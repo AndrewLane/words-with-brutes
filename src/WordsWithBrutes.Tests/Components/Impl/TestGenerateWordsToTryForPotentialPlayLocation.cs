@@ -17,7 +17,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
     public class TestGenerateWordsToTryForPotentialPlayLocation
     {
         private static readonly GameState DummyGameState = new GameState();
-        private static readonly string[] DummyWordsCreated = { "test", "testing" };
+        private static readonly WordsPlayedAndPointsScored DummyWordsCreatedAndPointsScored = new WordsPlayedAndPointsScored();
 
         /// <summary>
         /// Verifies that 26 words are generated when you have a blank and one tile to play it
@@ -38,7 +38,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
                 playedWord.TilesPlayed.Count().Should().Be(1);
                 playedWord.TilesPlayed.First().Location.X.Should().Be(0);
                 playedWord.TilesPlayed.First().Location.Y.Should().Be(1);
-                playedWord.WordsThisCreates.ShouldBeEquivalentTo(DummyWordsCreated);
+                playedWord.WordsPlayedAndPointsScored.Should().Be(DummyWordsCreatedAndPointsScored);
             }
 
             //make sure there's a result for each letter in the alphabet and make sure it's marked as a blank
@@ -74,7 +74,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
                 playedWord.TilesPlayed.First().Location.Y.Should().Be(0);
                 playedWord.TilesPlayed.ToList()[1].Location.X.Should().Be(0);
                 playedWord.TilesPlayed.ToList()[1].Location.Y.Should().Be(1);
-                playedWord.WordsThisCreates.ShouldBeEquivalentTo(DummyWordsCreated);
+                playedWord.WordsPlayedAndPointsScored.Should().Be(DummyWordsCreatedAndPointsScored);
             }
             //make sure there's a word that starts with x and ends with y, and there will be 2 if x!=y
             for (char x = 'A'; x <= 'Z'; x++)
@@ -110,7 +110,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             result.Count().Should().Be(2);
             foreach (var playedWord in result)
             {
-                playedWord.WordsThisCreates.ShouldBeEquivalentTo(DummyWordsCreated);
+                playedWord.WordsPlayedAndPointsScored.Should().Be(DummyWordsCreatedAndPointsScored);
                 playedWord.TilesPlayed.Count().Should().Be(2);
                 playedWord.TilesPlayed.First().Location.X.Should().Be(0);
                 playedWord.TilesPlayed.First().Location.Y.Should().Be(0);
@@ -135,7 +135,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             result.Count().Should().Be(3);
             foreach (var playedWord in result)
             {
-                playedWord.WordsThisCreates.ShouldBeEquivalentTo(DummyWordsCreated);
+                playedWord.WordsPlayedAndPointsScored.Should().Be(DummyWordsCreatedAndPointsScored);
                 playedWord.TilesPlayed.Count().Should().Be(2);
                 playedWord.TilesPlayed.First().Location.X.Should().Be(0);
                 playedWord.TilesPlayed.First().Location.Y.Should().Be(0);
@@ -152,9 +152,9 @@ namespace WordsWithBrutes.Tests.Components.Impl
         /// <returns></returns>
         private GenerateWordsToTryForPotentialPlayLocation GetObjectUnderTest()
         {
-            var mockedIDetermineTheWordsCreatedByAPlay = new Mock<IDetermineTheWordsCreatedByAPlay>(MockBehavior.Strict);
-            mockedIDetermineTheWordsCreatedByAPlay.Setup(mock => mock.GetPlayedWords(DummyGameState, It.IsAny<IEnumerable<PlayedTile>>()))
-                .Returns(DummyWordsCreated);
+            var mockedIDetermineTheWordsCreatedByAPlay = new Mock<IDetermineTheTotalPointsAndWordsCreatedByAPlay>(MockBehavior.Strict);
+            mockedIDetermineTheWordsCreatedByAPlay.Setup(mock => mock.GetPlayedWordsAndTotalPoints(DummyGameState, It.IsAny<IEnumerable<PlayedTile>>()))
+                .Returns(DummyWordsCreatedAndPointsScored);
 
             //i'm actually usign the GenerateStringPermutations class here instead of a mock...I realize this means I'm testing more than
             //one class at at time, so that's a short-coming

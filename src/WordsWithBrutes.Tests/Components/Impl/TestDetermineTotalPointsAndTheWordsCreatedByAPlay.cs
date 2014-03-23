@@ -11,10 +11,10 @@ using WordsWithBrutes.Model;
 namespace WordsWithBrutes.Tests.Components.Impl
 {
     /// <summary>
-    /// Tests the DetermineTheWordsCreatedByAPlay class
+    /// Tests the DetermineTheTotalPointsAndWordsCreatedByAPlay class
     /// </summary>
     [TestFixture]
-    public class TestDetermineTheWordsCreatedByAPlay
+    public class TestDetermineTotalPointsAndTheWordsCreatedByAPlay
     {
         private static readonly GameState DummyGameState = new GameState();
 
@@ -147,14 +147,14 @@ ABCD
             var mockArrayTransformer = new Mock<ITransformGameStateIntoTwoDimensionalArray>(MockBehavior.Strict);
             mockArrayTransformer.Setup(mock => mock.TransformIntoCharMultiArray(DummyGameState)).Returns(inputMultiArray);
 
-            var objectUnderTest = new DetermineTheWordsCreatedByAPlay(mockArrayTransformer.Object);
+            var objectUnderTest = new DetermineTheTotalPointsAndWordsCreatedByAPlay(mockArrayTransformer.Object);
 
             //create our PlayedTile collection
             var playedTileList = GetPlayedTileListFromOccupiedTilesString(playedTiles);
 
             //run the test and make sure the returned words match the expected words exactly
-            var playedWords = objectUnderTest.GetPlayedWords(DummyGameState, playedTileList);
-            playedWords.ShouldAllBeEquivalentTo(expectedWordsPlayed.Split(new[] { ',' }));
+            var playedWordsAndTotalPoints = objectUnderTest.GetPlayedWordsAndTotalPoints(DummyGameState, playedTileList);
+            playedWordsAndTotalPoints.WordsPlayed.ShouldAllBeEquivalentTo(expectedWordsPlayed.Split(new[] { ',' }));
         }
 
         /// <summary>

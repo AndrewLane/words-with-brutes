@@ -9,10 +9,10 @@ namespace WordsWithBrutes.Components.Impl
     internal class GenerateWordsToTryForPotentialPlayLocation : IGenerateWordsToTryForPotentialPlayLocation
     {
         private readonly IGenerateStringPermutations _stringPermutationsGenerator;
-        private readonly IDetermineTheWordsCreatedByAPlay _wordsCreatedByAPlayFetcher;
+        private readonly IDetermineTheTotalPointsAndWordsCreatedByAPlay _wordsCreatedByAPlayFetcher;
 
         public GenerateWordsToTryForPotentialPlayLocation(IGenerateStringPermutations stringPermutationsGenerator,
-            IDetermineTheWordsCreatedByAPlay wordsCreatedByAPlayFetcher)
+            IDetermineTheTotalPointsAndWordsCreatedByAPlay wordsCreatedByAPlayFetcher)
         {
             if (stringPermutationsGenerator == null) throw new ArgumentNullException("stringPermutationsGenerator");
             if (wordsCreatedByAPlayFetcher == null) throw new ArgumentNullException("wordsCreatedByAPlayFetcher");
@@ -63,7 +63,7 @@ namespace WordsWithBrutes.Components.Impl
                     tileCounter++;
                 }
 
-                result.Add(new PlayedWord {TilesPlayed = tilesPlayed, WordsThisCreates = _wordsCreatedByAPlayFetcher.GetPlayedWords(gameState, tilesPlayed)});
+                result.Add(new PlayedWord {TilesPlayed = tilesPlayed, WordsPlayedAndPointsScored = _wordsCreatedByAPlayFetcher.GetPlayedWordsAndTotalPoints(gameState, tilesPlayed)});
             }
 
             return result;

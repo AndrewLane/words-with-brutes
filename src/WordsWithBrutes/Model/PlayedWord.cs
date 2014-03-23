@@ -13,8 +13,8 @@ namespace WordsWithBrutes.Model
         public IEnumerable<PlayedTile> TilesPlayed { get; set; }
 
         /// <summary>
-        /// The list of words created by this play (might be multiple)
+        /// The words formed by these played tiles and the total points this play would be worth
         /// </summary>
-        public IEnumerable<string> WordsThisCreates { get; set; }
+        public WordsPlayedAndPointsScored WordsPlayedAndPointsScored { get; set; }
     }
 }
