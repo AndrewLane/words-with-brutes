@@ -20,14 +20,14 @@ namespace WordsWithBrutes.Components.Impl
         }
 
         /// <summary>
-        /// Transforms a GameState into a multi-dimensional array of characters
+        /// Transforms a GameState into a multi-dimensional array of PlayedTiles
         /// </summary>
-        public char[,] TransformIntoCharMultiArray(GameState gameState)
+        public PlayedTile[,] TransformIntoPlayedTileMultiArray(GameState gameState)
         {
-            var transformation = new char[gameState.Challenge.BoardConfiguration.Width, gameState.Challenge.BoardConfiguration.Height];
+            var transformation = new PlayedTile[gameState.Challenge.BoardConfiguration.Width, gameState.Challenge.BoardConfiguration.Height];
             foreach (var tilePlayed in gameState.PlayedWords.SelectMany(playedWord => playedWord.TilesPlayed))
             {
-                transformation[tilePlayed.Location.X, tilePlayed.Location.Y] = tilePlayed.Letter;
+                transformation[tilePlayed.Location.X, tilePlayed.Location.Y] = tilePlayed;
             }
             return transformation;
         }

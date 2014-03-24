@@ -28,12 +28,12 @@ namespace WordsWithBrutes.Components.Impl
             var playedWords = new List<string>();
 
             //convert our game state into an array of characters
-            var existingWords = _gameStateTransformer.TransformIntoCharMultiArray(gameState);
+            var existingWords = _gameStateTransformer.TransformIntoPlayedTileMultiArray(gameState);
 
             //add all the played tile to the multi-dimensional array so we have the state of the board after the word is played
             foreach (var playedTile in playedTiles)
             {
-                existingWords[playedTile.Location.X, playedTile.Location.Y] = playedTile.Letter;
+                existingWords[playedTile.Location.X, playedTile.Location.Y] = playedTile;
             }
 
             //loop through all the played tiles and look for horizontal and vertical words
@@ -53,7 +53,7 @@ namespace WordsWithBrutes.Components.Impl
         /// <summary>
         /// Helper which looks for words formed in the up-and-down direction
         /// </summary>
-        private static string GetVerticalWord(char[,] existingWords, TileLocation tileLocationThatsPartOfTheWord)
+        private static string GetVerticalWord(PlayedTile[,] existingWords, TileLocation tileLocationThatsPartOfTheWord)
         {
             //find the top-most played tile and the bottom-most played tile
             var smallestYCoordinate = tileLocationThatsPartOfTheWord.Y;
@@ -62,7 +62,7 @@ namespace WordsWithBrutes.Components.Impl
             //go up until we run out of room or there's no tile
             for (int i = smallestYCoordinate - 1; i >= 0; i--)
             {
-                if (existingWords[tileLocationThatsPartOfTheWord.X, i] != default(char))
+                if (existingWords[tileLocationThatsPartOfTheWord.X, i] != null)
                 {
                     smallestYCoordinate = i;
                 }
@@ -75,7 +75,7 @@ namespace WordsWithBrutes.Components.Impl
             //go down until we run out of room or there's no tile
             for (int i = largestYCoordinate + 1; i < existingWords.GetLength(dimension: 1); i++)
             {
-                if (existingWords[tileLocationThatsPartOfTheWord.X, i] != default(char))
+                if (existingWords[tileLocationThatsPartOfTheWord.X, i] != null)
                 {
                     largestYCoordinate = i;
                 }
@@ -95,7 +95,7 @@ namespace WordsWithBrutes.Components.Impl
             var newWord = new StringBuilder();
             for (int y = smallestYCoordinate; y <= largestYCoordinate; y++)
             {
-                newWord.Append(existingWords[tileLocationThatsPartOfTheWord.X, y]);
+                newWord.Append(existingWords[tileLocationThatsPartOfTheWord.X, y].Letter);
             }
             return newWord.ToString();
         }
@@ -103,7 +103,7 @@ namespace WordsWithBrutes.Components.Impl
         /// <summary>
         /// Helper which looks for words formed in the left-to-right direction
         /// </summary>
-        private static string GetHorizontalWord(char[,] existingWords, TileLocation tileLocationThatsPartOfTheWord)
+        private static string GetHorizontalWord(PlayedTile[,] existingWords, TileLocation tileLocationThatsPartOfTheWord)
         {
             //find the left-most played tile and the right-most played tile
             var smallestXCoordinate = tileLocationThatsPartOfTheWord.X;
@@ -112,7 +112,7 @@ namespace WordsWithBrutes.Components.Impl
             //go left until we run out of room or there's no tile
             for (int i = smallestXCoordinate - 1; i >= 0; i--)
             {
-                if (existingWords[i, tileLocationThatsPartOfTheWord.Y] != default(char))
+                if (existingWords[i, tileLocationThatsPartOfTheWord.Y] != null)
                 {
                     smallestXCoordinate = i;
                 }
@@ -125,7 +125,7 @@ namespace WordsWithBrutes.Components.Impl
             //go right until we run out of room or there's no tile
             for (int i = largestXCoordinate + 1; i < existingWords.GetLength(dimension: 0); i++)
             {
-                if (existingWords[i, tileLocationThatsPartOfTheWord.Y] != default(char))
+                if (existingWords[i, tileLocationThatsPartOfTheWord.Y] != null)
                 {
                     largestXCoordinate = i;
                 }
@@ -145,7 +145,7 @@ namespace WordsWithBrutes.Components.Impl
             var newWord = new StringBuilder();
             for (int x = smallestXCoordinate; x <= largestXCoordinate; x++)
             {
-                newWord.Append(existingWords[x, tileLocationThatsPartOfTheWord.Y]);
+                newWord.Append(existingWords[x, tileLocationThatsPartOfTheWord.Y].Letter);
             }
             return newWord.ToString();
         }

@@ -35,8 +35,8 @@ namespace WordsWithBrutes.Components
         bool[,] TransformIntoBoolMultiArray(GameState gameState);
 
         /// <summary>
-        /// Transforms a GameState into a multi-dimensional array of characters
+        /// Transforms a GameState into a multi-dimensional array of PlayedTiles
         /// </summary>
-        char[,] TransformIntoCharMultiArray(GameState gameState);
+        PlayedTile[,] TransformIntoPlayedTileMultiArray(GameState gameState);
     }
 }

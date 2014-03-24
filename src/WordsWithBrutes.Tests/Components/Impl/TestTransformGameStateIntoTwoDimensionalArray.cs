@@ -31,7 +31,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             boolResult.GetLength(dimension: 1).Should().Be(0);
 
             var charResult =
-                objectUnderTest.TransformIntoCharMultiArray(gameState);
+                objectUnderTest.TransformIntoPlayedTileMultiArray(gameState);
             charResult.GetLength(dimension: 0).Should().Be(0);
             charResult.GetLength(dimension: 1).Should().Be(0);
         }
@@ -62,17 +62,17 @@ namespace WordsWithBrutes.Tests.Components.Impl
                 }
             }
 
-            var charResult = objectUnderTest.TransformIntoCharMultiArray(gameState);
-            var charWidth = charResult.GetLength(dimension: 0);
-            var charHeight = charResult.GetLength(dimension: 1);
-            charWidth.Should().Be(15);
-            charHeight.Should().Be(15);
+            var playedTileResult = objectUnderTest.TransformIntoPlayedTileMultiArray(gameState);
+            var playedTileWidth = playedTileResult.GetLength(dimension: 0);
+            var playedTileHeight = playedTileResult.GetLength(dimension: 1);
+            playedTileWidth.Should().Be(15);
+            playedTileHeight.Should().Be(15);
 
-            for (int i = 0; i < charWidth; i++)
+            for (int i = 0; i < playedTileWidth; i++)
             {
-                for (int j = 0; j < charHeight; j++)
+                for (int j = 0; j < playedTileHeight; j++)
                 {
-                    charResult[i, j].Should().Be(default(char));
+                    playedTileResult[i, j].Should().BeNull();
                 }
             }
         }
@@ -125,15 +125,15 @@ namespace WordsWithBrutes.Tests.Components.Impl
                 }
             }
 
-            var charResult = objectUnderTest.TransformIntoCharMultiArray(gameState);
-            var charWidth = boolResult.GetLength(dimension: 0);
-            var charHeight = boolResult.GetLength(dimension: 1);
-            charWidth.Should().Be(2);
-            charHeight.Should().Be(2);
-            charResult[0, 0].Should().Be('A');
-            charResult[1, 0].Should().Be('B');
-            charResult[0, 1].Should().Be('C');
-            charResult[1, 1].Should().Be('D');
+            var playedTileResult = objectUnderTest.TransformIntoPlayedTileMultiArray(gameState);
+            var playedTileWidth = boolResult.GetLength(dimension: 0);
+            var playedTileHeight = boolResult.GetLength(dimension: 1);
+            playedTileWidth.Should().Be(2);
+            playedTileHeight.Should().Be(2);
+            playedTileResult[0, 0].Letter.Should().Be('A');
+            playedTileResult[1, 0].Letter.Should().Be('B');
+            playedTileResult[0, 1].Letter.Should().Be('C');
+            playedTileResult[1, 1].Letter.Should().Be('D');
         }
 
         /// <summary>
@@ -167,13 +167,15 @@ namespace WordsWithBrutes.Tests.Components.Impl
             boolResult[1, 0].Should().BeFalse();
             boolResult[1, 1].Should().BeFalse();
 
-            var charResult = objectUnderTest.TransformIntoCharMultiArray(gameState);
-            charResult.GetLength(dimension: 0).Should().Be(2);
-            charResult.GetLength(dimension: 1).Should().Be(2);
-            charResult[0, 0].Should().Be(default(char));
-            charResult[0, 1].Should().Be('A');
-            charResult[1, 0].Should().Be(default(char));
-            charResult[1, 1].Should().Be(default(char));
+            var playedTileResult = objectUnderTest.TransformIntoPlayedTileMultiArray(gameState);
+            var playedTileWidth = boolResult.GetLength(dimension: 0);
+            var playedTileHeight = boolResult.GetLength(dimension: 1);
+            playedTileWidth.Should().Be(2);
+            playedTileHeight.Should().Be(2);
+            playedTileResult[0, 0].Should().BeNull();
+            playedTileResult[0, 1].Letter.Should().Be('A');
+            playedTileResult[1, 0].Should().BeNull();
+            playedTileResult[1, 1].Should().BeNull();
         }
     }
 }

@@ -145,7 +145,7 @@ ABCD
 
             //set up our ITransformGameStateIntoTwoDimensionalArray object to return our multi-dimensional array
             var mockArrayTransformer = new Mock<ITransformGameStateIntoTwoDimensionalArray>(MockBehavior.Strict);
-            mockArrayTransformer.Setup(mock => mock.TransformIntoCharMultiArray(DummyGameState)).Returns(inputMultiArray);
+            mockArrayTransformer.Setup(mock => mock.TransformIntoPlayedTileMultiArray(DummyGameState)).Returns(inputMultiArray);
 
             var objectUnderTest = new DetermineTheTotalPointsAndWordsCreatedByAPlay(mockArrayTransformer.Object);
 
@@ -161,15 +161,17 @@ ABCD
         /// Helper method that takes a string that represents tiles already played on a board and converts into a multi-dimensional
         /// array where each cell is the tile played in that location (or just default(char) if nothing is played).
         /// </summary>
-        private static char[,] GetDummyTwoDimensionalArrayFromOccupiedTilesString(string occupiedTiles)
+        private static PlayedTile[,] GetDummyTwoDimensionalArrayFromOccupiedTilesString(string occupiedTiles)
         {
             var lines = occupiedTiles.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            var multiDimensionalArray = new char[lines.First().Length, lines.Length];
+            var multiDimensionalArray = new PlayedTile[lines.First().Length, lines.Length];
             for (int y = 0; y < lines.Length; y++)
             {
                 for (int x = 0; x < lines[y].Length; x++)
                 {
-                    multiDimensionalArray[x, y] = (lines[y][x] == ' ') ? default(char) : lines[y][x];
+                    multiDimensionalArray[x, y] = (lines[y][x] == ' ')
+                        ? null
+                        : new PlayedTile {Letter = lines[y][x], Location = new TileLocation {X = x, Y = y}, WasBlank = false};
                 }
             }
             return multiDimensionalArray;
