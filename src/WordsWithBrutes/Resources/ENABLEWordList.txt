@@ -8713,7 +8713,6 @@ asps
 asquint
 asrama
 asramas
-ass
 assagai
 assagaied
 assagaiing
@@ -8819,8 +8818,6 @@ asseverating
 asseveration
 asseverations
 asseverative
-asshole
-assholes
 assiduities
 assiduity
 assiduous
@@ -53367,7 +53364,6 @@ faenas
 faerie
 faeries
 faery
-fag
 fagged
 fagging
 faggot
@@ -59358,14 +59354,6 @@ fuchsine
 fuchsines
 fuchsins
 fuci
-fuck
-fucked
-fucker
-fuckers
-fucking
-fucks
-fuckup
-fuckups
 fucoid
 fucoidal
 fucoids
@@ -70049,8 +70037,6 @@ horsepoxes
 horseradish
 horseradishes
 horses
-horseshit
-horseshits
 horseshod
 horseshoe
 horseshoed
@@ -121063,7 +121049,6 @@ pussleys
 pusslies
 pusslike
 pussly
-pussy
 pussycat
 pussycats
 pussyfoot
@@ -138100,23 +138085,14 @@ shirtwaists
 shirty
 shist
 shists
-shit
 shitake
 shitakes
-shithead
-shitheads
-shits
 shittah
 shittahs
-shitted
-shittier
-shittiest
 shittim
 shittims
 shittimwood
 shittimwoods
-shitting
-shitty
 shiv
 shiva
 shivah
@@ -153867,6 +153843,7 @@ textbookish
 textbooks
 textile
 textiles
+texting
 textless
 texts
 textual
@@ -172433,6 +172410,7 @@ zemindary
 zemstva
 zemstvo
 zemstvos
+zen
 zenaida
 zenaidas
 zenana
