@@ -21,5 +21,10 @@ namespace WordsWithBrutes.Model
         /// Collection of all the special tiles on the board
         /// </summary>
         public IEnumerable<SpecialTile> SpecialTiles { get; set; }
+
+        /// <summary>
+        /// The place on the board where the game must start
+        /// </summary>
+        public TileLocation StartingTileLocation { get; set; }
     }
 }

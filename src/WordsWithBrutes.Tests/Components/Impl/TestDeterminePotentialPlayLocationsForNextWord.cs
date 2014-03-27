@@ -275,7 +275,8 @@ XXXXX";
             var boardConfig = new BoardConfiguration
             {
                 Height = occupiedTiles.GetLength(dimension: 0),
-                Width = occupiedTiles.GetLength(dimension: 1)
+                Width = occupiedTiles.GetLength(dimension: 1),
+                StartingTileLocation = new TileLocation { X = -1, Y = -1 } // todo: write tests for the StartingTileLocation
             };
 
             var challenge = new Challenge
