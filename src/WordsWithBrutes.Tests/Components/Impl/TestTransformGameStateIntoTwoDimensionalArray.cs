@@ -23,7 +23,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             var gameState = new GameState
             {
                 Challenge = new Challenge { BoardConfiguration = new BoardConfiguration { Height = 0, Width = 0 } },
-                PlayedWords = Enumerable.Empty<PlayedWord>()
+                PlayedWords = new List<PlayedWord>()
             };
             var boolResult =
                 objectUnderTest.TransformIntoBoolMultiArray(gameState);
@@ -46,7 +46,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             var gameState = new GameState
             {
                 Challenge = new Challenge { BoardConfiguration = new BoardConfiguration { Height = 15, Width = 15 } },
-                PlayedWords = Enumerable.Empty<PlayedWord>()
+                PlayedWords = new List<PlayedWord>()
             };
             var boolResult = objectUnderTest.TransformIntoBoolMultiArray(gameState);
             var boolWidth = boolResult.GetLength(dimension: 0);

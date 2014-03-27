@@ -15,7 +15,7 @@ namespace WordsWithBrutes.Model
         /// <summary>
         /// The words that have been played so far in this game
         /// </summary>
-        public IEnumerable<PlayedWord> PlayedWords { get; set; }
+        public IList<PlayedWord> PlayedWords { get; set; }
 
         /// <summary>
         /// The points accumulated so far in the game
