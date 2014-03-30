@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\IConvertGameStateToHumanReadableStrings.cs" />
     <Compile Include="Components\Impl\DetermineTheTotalPointsAndWordsCreatedByAPlay.cs" />
     <Compile Include="Components\IDetermineTheTotalPointsAndWordsCreatedByAPlay.cs" />
     <Compile Include="Components\Impl\GenerateStringPermutations.cs" />
