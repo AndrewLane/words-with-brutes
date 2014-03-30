@@ -18951,10 +18951,6 @@ bullrings
 bullrush
 bullrushes
 bulls
-bullshit
-bullshits
-bullshitted
-bullshitting
 bullshot
 bullshots
 bullterrier
@@ -24387,8 +24383,6 @@ chickening
 chickenpox
 chickenpoxes
 chickens
-chickenshit
-chickenshits
 chickories
 chickory
 chickpea
@@ -27247,7 +27241,6 @@ cochlear
 cochleas
 cocinera
 cocineras
-cock
 cockade
 cockaded
 cockades
@@ -27323,7 +27316,6 @@ cockpit
 cockpits
 cockroach
 cockroaches
-cocks
 cockscomb
 cockscombs
 cocksfoot
@@ -27334,8 +27326,6 @@ cockshuts
 cockshy
 cockspur
 cockspurs
-cocksucker
-cocksuckers
 cocksure
 cocksurely
 cocksureness
@@ -53366,14 +53356,11 @@ faeries
 faery
 fagged
 fagging
-faggot
 faggoted
 faggoting
 faggotings
 faggotries
 faggotry
-faggots
-faggoty
 faggy
 fagin
 fagins
@@ -94917,9 +94904,6 @@ mother
 motherboard
 motherboards
 mothered
-motherfucker
-motherfuckers
-motherfucking
 motherhood
 motherhoods
 motherhouse
