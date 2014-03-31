@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Impl\TestConvertGameStateToHumanReadableStrings.cs" />
     <Compile Include="Components\Impl\TestDetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Components\Impl\TestDeterminePotentialPlayLocationsForNextWord.cs" />
     <Compile Include="Components\Impl\TestDetermineTotalPointsAndTheWordsCreatedByAPlay.cs" />
