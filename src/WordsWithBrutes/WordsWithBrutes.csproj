@@ -68,10 +68,8 @@
     <Compile Include="Components\IDetermineIfAStringIsAPlayableWord.cs" />
     <Compile Include="Components\Impl\DeterminePotentialPlayLocationsForNextWord.cs" />
     <Compile Include="Components\IPopulateStandardWordsWithFriendsChallenge.cs" />
-    <Compile Include="Components\ISolveChallenges.cs" />
     <Compile Include="Components\ITransformGameStateIntoTwoDimensionalArray.cs" />
     <Compile Include="Components\Impl\TransformGameStateIntoTwoDimensionalArray.cs" />
-    <Compile Include="Components\Impl\SolveChallenges.cs" />
     <Compile Include="Components\Impl\PopulateStandardWordsWithFriendsChallenge.cs" />
     <Compile Include="Constants\WordsWithBrutesConstants.cs" />
     <Compile Include="Enum\Strategy.cs" />
