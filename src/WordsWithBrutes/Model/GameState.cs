@@ -31,5 +31,20 @@ namespace WordsWithBrutes.Model
         /// Whether this game is "done"
         /// </summary>
         public bool IsComplete { get; set; }
+
+        /// <summary>
+        /// Helper method that will "deep" (everything but the Challenge object) copy this game state
+        /// </summary>
+        public GameState Clone()
+        {
+            return new GameState
+            {
+                Challenge = this.Challenge,
+                IsComplete = this.IsComplete,
+                PointsSoFar = this.PointsSoFar,
+                CurrentRack = new Rack {Tiles = new List<char>(this.CurrentRack.Tiles)},
+                PlayedWords = new List<PlayedWord>(this.PlayedWords)
+            };
+        }
     }
 }
