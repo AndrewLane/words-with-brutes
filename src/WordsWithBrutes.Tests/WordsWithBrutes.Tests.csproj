@@ -34,6 +34,9 @@
     <Reference Include="FluentAssertions">
       <HintPath>..\WordsWithBrutes\packages\FluentAssertions.2.2.0.0\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\WordsWithBrutes\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Moq">
       <HintPath>..\WordsWithBrutes\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
     </Reference>
@@ -64,6 +67,9 @@
       <Project>{c2a09e6a-f94b-490a-9a91-0209b87b911f}</Project>
       <Name>WordsWithBrutes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

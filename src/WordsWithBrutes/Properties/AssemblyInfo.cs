@@ -1,10 +1,13 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using log4net.Config;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+
+
 [assembly: AssemblyTitle("WordsWithBrutes")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -36,3 +39,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: InternalsVisibleTo("WordsWithBrutes.Tests")]
+
+// Tell log4net to use Web.config or App.config to find it's configuration information
+[assembly: XmlConfigurator(Watch = true)]
