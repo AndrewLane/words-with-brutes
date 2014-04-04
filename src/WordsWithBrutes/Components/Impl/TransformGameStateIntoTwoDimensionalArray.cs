@@ -16,6 +16,10 @@ namespace WordsWithBrutes.Components.Impl
             {
                 transformation[tilePlayed.Location.X, tilePlayed.Location.Y] = true;
             }
+            foreach (var startingTile in gameState.Challenge.StartingTiles)
+            {
+                transformation[startingTile.Location.X, startingTile.Location.Y] = true;
+            }
             return transformation;
         }
 
@@ -28,6 +32,10 @@ namespace WordsWithBrutes.Components.Impl
             foreach (var tilePlayed in gameState.PlayedWords.SelectMany(playedWord => playedWord.TilesPlayed))
             {
                 transformation[tilePlayed.Location.X, tilePlayed.Location.Y] = tilePlayed;
+            }
+            foreach (var startingTile in gameState.Challenge.StartingTiles)
+            {
+                transformation[startingTile.Location.X, startingTile.Location.Y] = startingTile;
             }
             return transformation;
         }
