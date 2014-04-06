@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Impl\ConvertStringToWordsWithFriendsChallenge.cs" />
+    <Compile Include="Components\IConvertStringToWordsWithFriendsChallenge.cs" />
     <Compile Include="Components\Impl\ConvertGameStateToHumanReadableStrings.cs" />
     <Compile Include="Components\IConvertGameStateToHumanReadableStrings.cs" />
     <Compile Include="Components\Impl\DetermineTheTotalPointsAndWordsCreatedByAPlay.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Components\ISolveChallenges.cs" />
     <Compile Include="Components\ITransformGameStateIntoTwoDimensionalArray.cs" />
     <Compile Include="Components\Impl\TransformGameStateIntoTwoDimensionalArray.cs" />
+    <Compile Include="Components\Impl\SolveChallenges.cs" />
     <Compile Include="Components\Impl\PopulateStandardWordsWithFriendsChallenge.cs" />
     <Compile Include="Constants\WordsWithBrutesConstants.cs" />
     <Compile Include="Enum\Strategy.cs" />
