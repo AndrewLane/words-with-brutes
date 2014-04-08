@@ -18,6 +18,11 @@
         /// <summary>
         /// Just tries to get the challenge solved and doesn't care about points (i.e. pick the quickest possible solution)
         /// </summary>
-        QuickSolve
+        QuickSolve,
+
+        /// <summary>
+        /// Gets the max points on the first word, then quits (useful for cheating at the regular WWF game)
+        /// </summary>
+        MaxPointsFirstWordThenQuit
     }
 }
