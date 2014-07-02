@@ -17,7 +17,7 @@ namespace WordsWithBrutes.Components.Impl
                 new SpecialTile {Location = new TileLocation {X = 11, Y = 0}, TileType = SpecialTileType.TripleWord},
                 new SpecialTile {Location = new TileLocation {X = 11, Y = 14}, TileType = SpecialTileType.TripleWord},
                 new SpecialTile {Location = new TileLocation {X = 14, Y = 3}, TileType = SpecialTileType.TripleWord},
-                new SpecialTile {Location = new TileLocation {X = 14, Y = 14}, TileType = SpecialTileType.TripleWord}
+                new SpecialTile {Location = new TileLocation {X = 14, Y = 11}, TileType = SpecialTileType.TripleWord}
             };
 
         static readonly List<SpecialTile> AllTheDoubleWords = new List<SpecialTile>
