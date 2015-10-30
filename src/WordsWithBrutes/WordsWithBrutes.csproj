@@ -76,6 +76,7 @@
     <Compile Include="Components\ITransformGameStateIntoTwoDimensionalArray.cs" />
     <Compile Include="Components\Impl\TransformGameStateIntoTwoDimensionalArray.cs" />
     <Compile Include="Components\Impl\PopulateStandardWordsWithFriendsChallenge.cs" />
+    <Compile Include="Components\StringExtensions.cs" />
     <Compile Include="Constants\WordsWithBrutesConstants.cs" />
     <Compile Include="Enum\Strategy.cs" />
     <Compile Include="Enum\WordDirection.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WordsWithBrutes.Constants;
 using WordsWithBrutes.Model;
 
 namespace WordsWithBrutes.Components.Impl
@@ -21,7 +22,7 @@ namespace WordsWithBrutes.Components.Impl
         {
             var baseChallenge = _standardChallengeSeeder.GetStandardChallenge();
 
-            var lines = tiles.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = tiles.RemoveCarriageReturns().Split(new[] { WordsWithBrutesConstants.LineFeed }, StringSplitOptions.RemoveEmptyEntries);
 
             var startingTiles = new List<PlayedTile>();
 

@@ -6,6 +6,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using WordsWithBrutes.Components;
 using WordsWithBrutes.Components.Impl;
+using WordsWithBrutes.Constants;
 using WordsWithBrutes.Model;
 
 namespace WordsWithBrutes.Tests.Components.Impl
@@ -247,7 +248,7 @@ XXXXX";
         /// </summary>
         private bool[,] GetDummyTwoDimensionalArrayFromOccupiedTilesString(string occupiedTiles)
         {
-            var lines = occupiedTiles.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = occupiedTiles.RemoveCarriageReturns().Split(new[] { WordsWithBrutesConstants.LineFeed }, StringSplitOptions.RemoveEmptyEntries);
             var multiDimensionalArray = new bool[lines.Length, lines.Length];
             for (int i = 0; i < lines.Length; i++)
             {
