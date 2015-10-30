@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -79,6 +79,7 @@
     <Compile Include="Components\Impl\SolveChallenges.cs" />
     <Compile Include="Components\StringExtensions.cs" />
     <Compile Include="Constants\WordsWithBrutesConstants.cs" />
+    <Compile Include="DependencyInjection\WindsorInstaller.cs" />
     <Compile Include="Enum\Strategy.cs" />
     <Compile Include="Enum\WordDirection.cs" />
     <Compile Include="Enum\SpecialTileType.cs" />
