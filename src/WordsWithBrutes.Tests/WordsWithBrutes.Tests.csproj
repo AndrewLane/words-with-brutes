@@ -59,6 +59,7 @@
     <Compile Include="Components\Impl\TestDetermineTotalPointsAndTheWordsCreatedByAPlay.cs" />
     <Compile Include="Components\Impl\TestGenerateStringPermutations.cs" />
     <Compile Include="Components\Impl\TestGenerateWordsToTryForPotentialPlayLocation.cs" />
+    <Compile Include="Components\Impl\TestSolveChallenges.cs" />
     <Compile Include="Components\Impl\TestTransformGameStateIntoTwoDimensionalArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
