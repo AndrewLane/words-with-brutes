@@ -23,6 +23,12 @@
         /// <summary>
         /// Gets the max points on the first word, then quits (useful for cheating at the regular WWF game)
         /// </summary>
-        MaxPointsFirstWordThenQuit
+        MaxPointsFirstWordThenQuit,
+
+        /// <summary>
+        /// Gets the max points while using the maximum number of tiles on the first word, then quits
+        /// (useful for cheating at the regular WWF game where you are trying to end the game on your next turn)
+        /// </summary>
+        MaxTilesUsedInFirstWordThenQuit
     }
 }
