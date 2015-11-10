@@ -85,5 +85,76 @@ namespace WordsWithBrutes.Tests.IntegrationTests
                 container.Dispose();
             }
         }
+
+        /// <summary>
+        /// Verifies the system will find the maximum play of FLIRT in a certain board.
+        /// </summary>
+        [Test]
+        public void FlirtTest()
+        {
+            var container = new WindsorContainer();
+            try
+            {
+                container.Install(new WindsorInstaller());
+
+                var challengeCreator = container.Resolve<IConvertStringToWordsWithFriendsChallenge>();
+                var solutionPrinter = container.Resolve<IConvertGameStateToHumanReadableStrings>();
+                var solver = container.Resolve<ISolveChallenges>();
+
+                const string board = @"
+               
+               
+              R
+              E
+            H T
+            A I
+       H  MON N
+      DINTING a
+       L  GESTS
+       L       
+       E       
+DROOpIER       
+               
+               
+               
+";
+                var challenge = challengeCreator.Convert(board);
+                challenge.RackOfTiles = new Rack { Tiles = new List<char> { 'F','L','R','T','F','D','B' } };
+
+                var solution = solver.Solve(challenge, Strategy.MaxPointsFirstWordThenQuit);
+
+                //make sure our solution is complete
+                solution.IsComplete.Should().Be(true);
+
+                solution.PlayedWords.Count.Should().Be(1);
+                solution.PointsSoFar.Should().Be(34);
+
+                var printedSolution = solutionPrinter.Print(solution).ToList();
+                printedSolution.Count().Should().Be(1);
+                printedSolution[0].Should().Be(@"Play FLIRT for 34 point(s):
+
+                              
+                              
+                            R 
+                            E 
+                        H   T 
+                        A   I 
+              H     M O N   N 
+            D I N T I N G   a 
+              L     G E S T S 
+          F   L               
+          L   E               
+D R O O p I E R               
+          R                   
+          T                   
+                              
+".RemoveCarriageReturns());
+            }
+            finally
+            {
+                container.Dispose();
+            }
+        }
+
     }
 }
