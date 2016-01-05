@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -192,17 +191,6 @@ C D
             var result = GetObjectUnderTest().Print(new GameState {PlayedWords = new List<PlayedWord>()}).ToList();
             result.Count().Should().Be(1);
             result.First().Should().Be("No words played.");
-        }
-
-        /// <summary>
-        /// Help debug why the unit tests are failing on appveyor
-        /// </summary>
-        [Test]
-        public void TestCRLF()
-        {
-            var environmentNewLine = Environment.NewLine;
-            environmentNewLine.Should().Be(@"
-");
         }
 
         /// <summary>
