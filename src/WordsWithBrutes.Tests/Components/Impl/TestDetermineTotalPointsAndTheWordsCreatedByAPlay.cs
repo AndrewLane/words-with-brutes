@@ -282,7 +282,7 @@ ABCD
         /// </summary>
         private static PlayedTile[,] GetDummyTwoDimensionalArrayFromOccupiedTilesString(string occupiedTiles)
         {
-            var lines = occupiedTiles.RemoveCarriageReturns().Split(new[] { WordsWithBrutesConstants.LineFeed }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = occupiedTiles.Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
             var multiDimensionalArray = new PlayedTile[lines.First().Length, lines.Length];
             for (int y = 0; y < lines.Length; y++)
             {
@@ -301,7 +301,7 @@ ABCD
         /// </summary>
         private static IEnumerable<PlayedTile> GetPlayedTileListFromOccupiedTilesString(string occupiedTiles)
         {
-            var lines = occupiedTiles.RemoveCarriageReturns().Split(new[] { WordsWithBrutesConstants.LineFeed }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = occupiedTiles.Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
             var playedTiles = new List<PlayedTile>();
             for (int y = 0; y < lines.Length; y++)
             {

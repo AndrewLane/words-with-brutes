@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -66,14 +65,14 @@ namespace WordsWithBrutes.Tests.Components.Impl
                 result[0].Should().Be(@"Play A for 1 point(s):
 
 a 
-".RemoveCarriageReturns());
+");
             }
             else
             {
                 result[0].Should().Be(@"Play A for 1 point(s):
 
 A 
-".RemoveCarriageReturns());
+");
             }
         }
 
@@ -142,22 +141,22 @@ A
 
 A   
     
-".RemoveCarriageReturns());
+");
             result[1].Should().Be(@"Play WORD2 for 2 point(s):
 
 A B 
     
-".RemoveCarriageReturns());
+");
             result[2].Should().Be(@"Play WORD3 and WORD4 for 3 point(s):
 
 A B 
 C   
-".RemoveCarriageReturns());
+");
             result[3].Should().Be(@"Play WORD5, WORD6, and WORD7 for 4 point(s):
 
 A B 
 C D 
-".RemoveCarriageReturns());
+");
 
         }
 

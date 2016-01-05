@@ -78,7 +78,7 @@ namespace WordsWithBrutes.Tests.IntegrationTests
                               
                               
                               
-".RemoveCarriageReturns());
+");
             }
             finally
             {
@@ -148,7 +148,7 @@ D R O O p I E R
           R                   
           T                   
                               
-".RemoveCarriageReturns());
+");
             }
             finally
             {
@@ -218,7 +218,7 @@ D R O O p I E R
       E   A                   
       R   L                   
       S                       
-".RemoveCarriageReturns());
+");
             }
             finally
             {

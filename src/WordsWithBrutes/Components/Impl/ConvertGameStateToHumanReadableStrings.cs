@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WordsWithBrutes.Constants;
 using WordsWithBrutes.Model;
 
 namespace WordsWithBrutes.Components.Impl
@@ -48,7 +47,7 @@ namespace WordsWithBrutes.Components.Impl
                 const string moveDescriptionFormat = "Play {0} for {1} point(s):{2}{2}{3}";
 
                 move = String.Format(moveDescriptionFormat, GetPlayedWords(playedWord), playedWord.WordsPlayedAndPointsScored.TotalPointsAwarded,
-                    WordsWithBrutesConstants.LineFeed, move);
+                    Environment.NewLine, move);
 
                 moves.Add(move);
             }
@@ -77,7 +76,7 @@ namespace WordsWithBrutes.Components.Impl
                         response.AppendFormat("{0} ", isBlank ? char.ToLower(letter) : char.ToUpper(letter));
                     }
                 }
-                response.Append(WordsWithBrutesConstants.LineFeed);
+                response.AppendLine();
             }
             return response.ToString();
         }
