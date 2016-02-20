@@ -31,6 +31,7 @@ namespace WordsWithBrutes.Components.Impl
                 new SpecialTile {Location = new TileLocation {X = 11, Y = 7}, TileType = SpecialTileType.DoubleWord},
                 new SpecialTile {Location = new TileLocation {X = 1, Y = 9}, TileType = SpecialTileType.DoubleWord},
                 new SpecialTile {Location = new TileLocation {X = 13, Y = 9}, TileType = SpecialTileType.DoubleWord},
+                new SpecialTile {Location = new TileLocation {X = 7, Y = 11}, TileType = SpecialTileType.DoubleWord},
                 new SpecialTile {Location = new TileLocation {X = 5, Y = 13}, TileType = SpecialTileType.DoubleWord},
                 new SpecialTile {Location = new TileLocation {X = 9, Y = 13}, TileType = SpecialTileType.DoubleWord}
             };
