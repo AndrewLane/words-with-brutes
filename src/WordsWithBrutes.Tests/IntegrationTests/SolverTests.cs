@@ -226,6 +226,73 @@ D R O O p I E R
             }
         }
 
+        /// <summary>
+        /// Verifies the system will find the maximum play of TERMINUS in a certain board.
+        /// </summary>
+        [Test]
+        public void TerminusTest()
+        {
+            var container = new WindsorContainer();
+            try
+            {
+                container.Install(new WindsorInstaller());
 
+                var challengeCreator = container.Resolve<IConvertStringToWordsWithFriendsChallenge>();
+                var solutionPrinter = container.Resolve<IConvertGameStateToHumanReadableStrings>();
+                var solver = container.Resolve<ISolveChallenges>();
+
+                const string board = @"
+               
+     C    C    
+ H   A    A    
+GOTH SHOVELS   
+ N O E  I LO   
+ K LED  AT W   
+   L     I E   
+   YA  TIMED   
+    X   TEN    
+    EF   D     
+     A         
+     N         
+     E         
+               
+               ";
+                var challenge = challengeCreator.Convert(board);
+                challenge.RackOfTiles = new Rack { Tiles = new List<char> { 'T', 'E', 'R', 'M', 'I', 'U', 'S' } };
+
+                var solution = solver.Solve(challenge, Strategy.MaxPointsFirstWordThenQuit);
+
+                //make sure our solution is complete
+                solution.IsComplete.Should().Be(true);
+
+                solution.PlayedWords.Count.Should().Be(1);
+                //solution.PointsSoFar.Should().Be(34);
+
+                var printedSolution = solutionPrinter.Print(solution).ToList();
+                printedSolution.Count().Should().Be(1);
+                printedSolution[0].Should().Be(@"Play TERMINUS for 161 point(s):
+
+                              
+          C         C         
+  H       A         A         
+G O T H   S H O V E L S       
+  N   O   E     I   L O       
+  K   L E D     A T   W       
+      L           I   E       
+      Y A     T I M E D       
+        X       T E N         
+        E F       D           
+          A                   
+T E R M I N U S               
+          E                   
+                              
+                              
+");
+            }
+            finally
+            {
+                container.Dispose();
+            }
+        }
     }
 }
