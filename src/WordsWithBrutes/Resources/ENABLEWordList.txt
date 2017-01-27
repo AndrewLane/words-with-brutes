@@ -102232,6 +102232,8 @@ onlooker
 onlookers
 onlooking
 only
+ono
+onos
 onomastic
 onomastically
 onomastician
