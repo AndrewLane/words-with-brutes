@@ -210,7 +210,7 @@ ABCD
 
             //run the test and make sure the returned words match the expected words exactly as well as the total points awarded
             var playedWordsAndTotalPoints = objectUnderTest.GetPlayedWordsAndTotalPoints(DummyGameState, playedTileList);
-            playedWordsAndTotalPoints.WordsPlayed.ShouldAllBeEquivalentTo(expectedWordsPlayed.Split(new[] {','}));
+            playedWordsAndTotalPoints.WordsPlayed.ShouldAllBeEquivalentTo(expectedWordsPlayed.Split(','));
             playedWordsAndTotalPoints.TotalPointsAwarded.Should().Be(expectedTotalPoints);
         }
 
@@ -241,7 +241,7 @@ ABCD
 
             //run the test and make sure the returned words match the expected words exactly as well as the total points awarded
             var playedWordsAndTotalPoints = objectUnderTest.GetPlayedWordsAndTotalPoints(DummyGameState, playedTileList);
-            playedWordsAndTotalPoints.WordsPlayed.ShouldAllBeEquivalentTo("AA".Split(new[] { ',' }));
+            playedWordsAndTotalPoints.WordsPlayed.ShouldAllBeEquivalentTo("AA".Split(','));
             playedWordsAndTotalPoints.TotalPointsAwarded.Should().Be(8);
         }
 
@@ -272,7 +272,7 @@ ABCD
 
             //run the test and make sure the returned words match the expected words exactly as well as the total points awarded
             var playedWordsAndTotalPoints = objectUnderTest.GetPlayedWordsAndTotalPoints(DummyGameState, playedTileList);
-            playedWordsAndTotalPoints.WordsPlayed.ShouldAllBeEquivalentTo("AA".Split(new[] { ',' }));
+            playedWordsAndTotalPoints.WordsPlayed.ShouldAllBeEquivalentTo("AA".Split(','));
             playedWordsAndTotalPoints.TotalPointsAwarded.Should().Be(18);
         }
 

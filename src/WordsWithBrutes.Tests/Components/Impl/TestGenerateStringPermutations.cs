@@ -30,7 +30,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             var objectUnderTest = new GenerateStringPermutations();
             var permutations = objectUnderTest.Generate(input.ToCharArray(), numberOfLettersToUse).ToList();
 
-            permutations.Count().Should().Be(1);
+            permutations.Count.Should().Be(1);
 
             permutations.Select(charArray => String.Join(String.Empty, charArray)).First().Should().Be(expectedOutput);
         }
@@ -53,7 +53,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             var objectUnderTest = new GenerateStringPermutations();
             var permutations = objectUnderTest.Generate(input.ToCharArray(), numberOfLettersToUse).ToList();
 
-            permutations.Count().Should().Be(expectedMatches.Count());
+            permutations.Count.Should().Be(expectedMatches.Length);
 
             var stringRepresentations = permutations.Select(charArray => String.Join(String.Empty, charArray)).ToList();
 

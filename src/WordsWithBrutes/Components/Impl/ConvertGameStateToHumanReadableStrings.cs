@@ -12,7 +12,7 @@ namespace WordsWithBrutes.Components.Impl
 
         public ConvertGameStateToHumanReadableStrings(ITransformGameStateIntoTwoDimensionalArray gameStateTransformer)
         {
-            if (gameStateTransformer == null) throw new ArgumentNullException("gameStateTransformer");
+            if (gameStateTransformer == null) throw new ArgumentNullException(nameof(gameStateTransformer));
             _gameStateTransformer = gameStateTransformer;
         }
 
@@ -22,7 +22,7 @@ namespace WordsWithBrutes.Components.Impl
         public IEnumerable<string> Print(GameState gameState)
         {
             //shor-circuit if the game state doesn't really make sense to print
-            if (gameState == null || gameState.PlayedWords == null || gameState.PlayedWords.Any() == false)
+            if (gameState?.PlayedWords == null || gameState.PlayedWords.Any() == false)
             {
                 return new List<string> { "No words played." };
             }
@@ -88,23 +88,23 @@ namespace WordsWithBrutes.Components.Impl
         {
             var words = playedWord.WordsPlayedAndPointsScored.WordsPlayed.ToList();
 
-            if (words.Count() == 1)
+            if (words.Count == 1)
             {
                 return words.First();
             }
-            if (words.Count() == 2)
+            if (words.Count == 2)
             {
-                return String.Format("{0} and {1}", words[0], words[1]);
+                return $"{words[0]} and {words[1]}";
             }
 
             var response = new StringBuilder();
-            for (int i = 0; i < words.Count(); i++)
+            for (int i = 0; i < words.Count; i++)
             {
                 if (i != 0)
                 {
                     response.Append(", ");
                 }
-                if (i == words.Count() - 1)
+                if (i == words.Count - 1)
                 {
                     response.Append("and ");
                 }

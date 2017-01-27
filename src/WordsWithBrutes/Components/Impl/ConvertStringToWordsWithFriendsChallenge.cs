@@ -10,7 +10,7 @@ namespace WordsWithBrutes.Components.Impl
 
         public ConvertStringToWordsWithFriendsChallenge(IPopulateStandardWordsWithFriendsChallenge standardChallengeSeeder)
         {
-            if (standardChallengeSeeder == null) throw new ArgumentNullException("standardChallengeSeeder");
+            if (standardChallengeSeeder == null) throw new ArgumentNullException(nameof(standardChallengeSeeder));
             _standardChallengeSeeder = standardChallengeSeeder;
         }
 
@@ -27,14 +27,14 @@ namespace WordsWithBrutes.Components.Impl
 
             if (lines.Length != 15)
             {
-                throw new ArgumentException(String.Format("tiles has {0} rows instead of 15", lines.Length));
+                throw new ArgumentException($"tiles has {lines.Length} rows instead of 15");
             }
 
             for (int y = 0; y < lines.Length; y++)
             {
                 if (lines[y].Length != 15)
                 {
-                    throw new ArgumentException(String.Format("line {0} has {1} columns instead of 15", (y + 1), lines[y].Length));
+                    throw new ArgumentException($"line {(y + 1)} has {lines[y].Length} columns instead of 15");
                 }
 
                 for (int x = 0; x < 15; x++)

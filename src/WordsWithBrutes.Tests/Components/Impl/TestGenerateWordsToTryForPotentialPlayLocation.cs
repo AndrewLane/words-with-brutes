@@ -31,7 +31,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
                     new[] { WordsWithBrutesConstants.BlankTile }).ToList();
 
             //make sure 26 results got generated
-            result.Count().Should().Be(26);
+            result.Count.Should().Be(26);
             //make sure each result is in the right location and has the correct words created
             foreach (var playedWord in result)
             {
@@ -65,7 +65,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
                     new[] { WordsWithBrutesConstants.BlankTile, WordsWithBrutesConstants.BlankTile }).ToList();
 
             //ab will get created twice but aa will only get created once, so that's why the number of results is strange
-            result.Count().Should().Be(26 * 26 * 2 - 26); // (26^2)*2 - 26
+            result.Count.Should().Be(26 * 26 * 2 - 26); // (26^2)*2 - 26
             //make sure each result is in the right location and has the correct words created
             foreach (var playedWord in result)
             {
@@ -107,7 +107,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
                     new PotentialPlayLocation { TileLocations = new List<TileLocation> { new TileLocation { X = 0, Y = 0 }, new TileLocation { X = 0, Y = 1 } } },
                     new[] { 'A', 'B' }).ToList();
 
-            result.Count().Should().Be(2);
+            result.Count.Should().Be(2);
             foreach (var playedWord in result)
             {
                 playedWord.WordsPlayedAndPointsScored.Should().Be(DummyWordsCreatedAndPointsScored);
@@ -132,7 +132,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
                 new PotentialPlayLocation { TileLocations = new List<TileLocation> { new TileLocation { X = 0, Y = 0 }, new TileLocation { X = 0, Y = 1 } } },
                 new[] { 'A', 'A', 'B' }).ToList();
 
-            result.Count().Should().Be(3);
+            result.Count.Should().Be(3);
             foreach (var playedWord in result)
             {
                 playedWord.WordsPlayedAndPointsScored.Should().Be(DummyWordsCreatedAndPointsScored);

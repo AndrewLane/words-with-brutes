@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Castle.Windsor;
 using FluentAssertions;
@@ -60,7 +59,7 @@ namespace WordsWithBrutes.Tests.IntegrationTests
                 solution.PointsSoFar.Should().Be(20);
 
                 var printedSolution = solutionPrinter.Print(solution).ToList();
-                printedSolution.Count().Should().Be(1);
+                printedSolution.Count.Should().Be(1);
                 printedSolution[0].Should().Be(@"Play TESTING for 20 point(s):
 
                               
@@ -130,7 +129,7 @@ DROOpIER
                 solution.PointsSoFar.Should().Be(34);
 
                 var printedSolution = solutionPrinter.Print(solution).ToList();
-                printedSolution.Count().Should().Be(1);
+                printedSolution.Count.Should().Be(1);
                 printedSolution[0].Should().Be(@"Play FLIRT for 34 point(s):
 
                               
@@ -200,7 +199,7 @@ D R O O p I E R
                 solution.PointsSoFar.Should().Be(155);
 
                 var printedSolution = solutionPrinter.Print(solution).ToList();
-                printedSolution.Count().Should().Be(1);
+                printedSolution.Count.Should().Be(1);
                 printedSolution[0].Should().Be(@"Play MOUTHERS for 155 point(s):
 
                               
@@ -269,7 +268,7 @@ GOTH SHOVELS
                 //solution.PointsSoFar.Should().Be(34);
 
                 var printedSolution = solutionPrinter.Print(solution).ToList();
-                printedSolution.Count().Should().Be(1);
+                printedSolution.Count.Should().Be(1);
                 printedSolution[0].Should().Be(@"Play TERMINUS for 161 point(s):
 
                               

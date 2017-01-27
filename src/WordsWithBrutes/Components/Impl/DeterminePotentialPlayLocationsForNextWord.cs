@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using WordsWithBrutes.Enum;
 using WordsWithBrutes.Model;
 
@@ -13,7 +12,7 @@ namespace WordsWithBrutes.Components.Impl
         public DeterminePotentialPlayLocationsForNextWord(
             ITransformGameStateIntoTwoDimensionalArray gameStateIntoTwoDimensionalArrayTransformer)
         {
-            if (gameStateIntoTwoDimensionalArrayTransformer == null) throw new ArgumentNullException("gameStateIntoTwoDimensionalArrayTransformer");
+            if (gameStateIntoTwoDimensionalArrayTransformer == null) throw new ArgumentNullException(nameof(gameStateIntoTwoDimensionalArrayTransformer));
             _gameStateIntoTwoDimensionalArrayTransformer = gameStateIntoTwoDimensionalArrayTransformer;
         }
 

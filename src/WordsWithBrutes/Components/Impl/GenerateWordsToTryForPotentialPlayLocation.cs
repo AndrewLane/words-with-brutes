@@ -14,8 +14,8 @@ namespace WordsWithBrutes.Components.Impl
         public GenerateWordsToTryForPotentialPlayLocation(IGenerateStringPermutations stringPermutationsGenerator,
             IDetermineTheTotalPointsAndWordsCreatedByAPlay wordsCreatedByAPlayFetcher)
         {
-            if (stringPermutationsGenerator == null) throw new ArgumentNullException("stringPermutationsGenerator");
-            if (wordsCreatedByAPlayFetcher == null) throw new ArgumentNullException("wordsCreatedByAPlayFetcher");
+            if (stringPermutationsGenerator == null) throw new ArgumentNullException(nameof(stringPermutationsGenerator));
+            if (wordsCreatedByAPlayFetcher == null) throw new ArgumentNullException(nameof(wordsCreatedByAPlayFetcher));
             _stringPermutationsGenerator = stringPermutationsGenerator;
             _wordsCreatedByAPlayFetcher = wordsCreatedByAPlayFetcher;
         }

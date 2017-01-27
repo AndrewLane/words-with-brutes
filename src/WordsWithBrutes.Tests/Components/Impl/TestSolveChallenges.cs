@@ -60,7 +60,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
             solution.IsComplete.Should().BeTrue();
             solution.PointsSoFar.Should().Be(5);
             var playedWords = solution.PlayedWords.ToList();
-            playedWords.Count().Should().Be(1);
+            playedWords.Count.Should().Be(1);
             playedWords[0].Should().Be(dummyPlayedWord);
         }
     }

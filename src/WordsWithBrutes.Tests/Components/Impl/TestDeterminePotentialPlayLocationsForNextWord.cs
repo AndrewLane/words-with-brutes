@@ -130,7 +130,7 @@ XXXXX";
         public void TestGetPlacesToPlayNextWordWithSingleExpectedMatch(string inputBoard, int lettersOnRack, int expectedPotentialPlays, params string[] expectedMatches)
         {
             //make sure there isn't a bug in the test specification
-            expectedMatches.Count().Should().Be(expectedPotentialPlays);
+            expectedMatches.Length.Should().Be(expectedPotentialPlays);
 
             var inputMultiArray = GetDummyTwoDimensionalArrayFromOccupiedTilesString(inputBoard);
             var intputGameState = GetDummyGameStateFromOccupiedTiles(inputMultiArray, lettersOnRack);
@@ -143,7 +143,7 @@ XXXXX";
 
             //get all the places to play, and then make sure they match the expected
             var placesToPlay = objectUnderTest.GetPlacesToPlayNextWord(intputGameState).ToList();
-            placesToPlay.Count().Should().Be(expectedPotentialPlays);
+            placesToPlay.Count.Should().Be(expectedPotentialPlays);
             foreach (var expectedPlay in expectedMatches)
             {
                 var expectedPlayMultiArray = GetDummyTwoDimensionalArrayFromOccupiedTilesString(expectedPlay);
@@ -178,7 +178,7 @@ XXXXX";
 
             //get all the places to play, and then make sure they match the expected
             var placesToPlay = objectUnderTest.GetPlacesToPlayNextWord(intputGameState).ToList();
-            placesToPlay.Count().Should().Be(1);
+            placesToPlay.Count.Should().Be(1);
             DoesPotentialPlayLocationMatch(GetDummyTwoDimensionalArrayFromOccupiedTilesString(expectedMatch), placesToPlay.First()).Should().BeTrue();
         }
 
@@ -211,7 +211,7 @@ XXXXX";
 
             //get all the places to play, and then make sure the count matches the expected
             var placesToPlay = objectUnderTest.GetPlacesToPlayNextWord(intputGameState).ToList();
-            placesToPlay.Count().Should().Be(expectedMatchCount);
+            placesToPlay.Count.Should().Be(expectedMatchCount);
         }
 
         /// <summary>

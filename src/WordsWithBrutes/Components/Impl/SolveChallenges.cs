@@ -22,11 +22,11 @@ namespace WordsWithBrutes.Components.Impl
             IDetermineTheTotalPointsAndWordsCreatedByAPlay playAnalyzer, IGenerateWordsToTryForPotentialPlayLocation wordGeneratorForPotentialPlayLocation,
             IConvertGameStateToHumanReadableStrings gameStateToHumanReadableStringsConverter)
         {
-            if (wordChecker == null) throw new ArgumentNullException("wordChecker");
-            if (potentialPlayLocator == null) throw new ArgumentNullException("potentialPlayLocator");
-            if (playAnalyzer == null) throw new ArgumentNullException("playAnalyzer");
-            if (wordGeneratorForPotentialPlayLocation == null) throw new ArgumentNullException("wordGeneratorForPotentialPlayLocation");
-            if (gameStateToHumanReadableStringsConverter == null) throw new ArgumentNullException("gameStateToHumanReadableStringsConverter");
+            if (wordChecker == null) throw new ArgumentNullException(nameof(wordChecker));
+            if (potentialPlayLocator == null) throw new ArgumentNullException(nameof(potentialPlayLocator));
+            if (playAnalyzer == null) throw new ArgumentNullException(nameof(playAnalyzer));
+            if (wordGeneratorForPotentialPlayLocation == null) throw new ArgumentNullException(nameof(wordGeneratorForPotentialPlayLocation));
+            if (gameStateToHumanReadableStringsConverter == null) throw new ArgumentNullException(nameof(gameStateToHumanReadableStringsConverter));
             _wordChecker = wordChecker;
             _potentialPlayLocator = potentialPlayLocator;
             _playAnalyzer = playAnalyzer;
@@ -68,7 +68,7 @@ namespace WordsWithBrutes.Components.Impl
 
             if (Logger.IsDebugEnabled)
             {
-                Logger.Debug(String.Format("Found {0} places to potentially play next word", wordsToPlay.Count()));
+                Logger.Debug($"Found {wordsToPlay.Count} places to potentially play next word");
             }
 
             int maxPointsForThisTurn = 0;
@@ -85,7 +85,7 @@ namespace WordsWithBrutes.Components.Impl
 
                 if (Logger.IsDebugEnabled)
                 {
-                    Logger.Debug(String.Format("Found {0} words to try at this potential play location", wordsToTryHere.Count()));
+                    Logger.Debug($"Found {wordsToTryHere.Count} words to try at this potential play location");
                 }
 
                 foreach (var wordToTry in wordsToTryHere)
@@ -163,7 +163,7 @@ namespace WordsWithBrutes.Components.Impl
                     break;
 
                 case Strategy.MaxTotalPoints:
-                    var allTheValidWordsToPursueCount = allTheValidWordsToPursue.Count();
+                    var allTheValidWordsToPursueCount = allTheValidWordsToPursue.Count;
 
                     if (allTheValidWordsToPursueCount == 1)
                     {
@@ -198,15 +198,14 @@ namespace WordsWithBrutes.Components.Impl
                                         var completion = _gameStateToHumanReadableStringsConverter.Print(gameStateOfMaxPoints);
 
                                         Logger.Info(
-                                            String.Format(@"The best solution (so far) that started with this game state resulted in {0} points.
+                                            $@"The best solution (so far) that started with this game state resulted in {bestSolutionWithThisWord.PointsSoFar} points.
 
 Start: 
-{1}
+{start.First()}
 **********
 
 Finish: 
-{2}",
-                                                bestSolutionWithThisWord.PointsSoFar, start.First(), String.Join(Environment.NewLine, completion)));
+{String.Join(Environment.NewLine, completion)}");
                                         Logger.Info("-------------------------");
                                     }
                                 }
@@ -216,7 +215,7 @@ Finish:
                             {
                                 if (Logger.IsInfoEnabled)
                                 {
-                                    Logger.Info(String.Format("Done with {0}/{1}", counter, allTheValidWordsToPursue.Count));
+                                    Logger.Info($"Done with {counter}/{allTheValidWordsToPursue.Count}");
                                 }
                             }
                         }

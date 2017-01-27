@@ -58,7 +58,7 @@ namespace WordsWithBrutes.Tests.Components.Impl
                 .Returns(dummyPlayedTiles);
 
             var result = objectUnderTest.Print(dummyGameState).ToList();
-            result.Count().Should().Be(1);
+            result.Count.Should().Be(1);
 
             if (useBlank)
             {
@@ -135,7 +135,7 @@ A
 
             var result = objectUnderTest.Print(dummyGameState).ToList();
 
-            result.Count().Should().Be(4);
+            result.Count.Should().Be(4);
 
             result[0].Should().Be(@"Play WORD1 for 1 point(s):
 
@@ -167,7 +167,7 @@ C D
         public void TestNullGameState()
         {
             var result = GetObjectUnderTest().Print(null).ToList();
-            result.Count().Should().Be(1);
+            result.Count.Should().Be(1);
             result.First().Should().Be("No words played.");
         }
 
@@ -178,7 +178,7 @@ C D
         public void TestNullPlayedWords()
         {
             var result = GetObjectUnderTest().Print(new GameState()).ToList();
-            result.Count().Should().Be(1);
+            result.Count.Should().Be(1);
             result.First().Should().Be("No words played.");
         }
 
@@ -189,7 +189,7 @@ C D
         public void TestEmptyPlayedWords()
         {
             var result = GetObjectUnderTest().Print(new GameState {PlayedWords = new List<PlayedWord>()}).ToList();
-            result.Count().Should().Be(1);
+            result.Count.Should().Be(1);
             result.First().Should().Be("No words played.");
         }
 

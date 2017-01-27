@@ -15,7 +15,7 @@ namespace WordsWithBrutes.Components.Impl
 
         public DetermineTheTotalPointsAndWordsCreatedByAPlay(ITransformGameStateIntoTwoDimensionalArray gameStateTransformer)
         {
-            if (gameStateTransformer == null) throw new ArgumentNullException("gameStateTransformer");
+            if (gameStateTransformer == null) throw new ArgumentNullException(nameof(gameStateTransformer));
             _gameStateTransformer = gameStateTransformer;
         }
 
@@ -81,7 +81,7 @@ namespace WordsWithBrutes.Components.Impl
             }
 
             //look for the bonus for playing the maximum number of tiles at once
-            if (playedTilesList.Count() == gameState.Challenge.MaxRackLength)
+            if (playedTilesList.Count == gameState.Challenge.MaxRackLength)
             {
                 totalPoints += gameState.Challenge.MaxRackLengthBonus;
             }
