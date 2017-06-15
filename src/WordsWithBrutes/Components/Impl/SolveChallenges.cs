@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using log4net;
 using WordsWithBrutes.Constants;
 using WordsWithBrutes.Enum;
@@ -17,6 +18,7 @@ namespace WordsWithBrutes.Components.Impl
         private readonly IConvertGameStateToHumanReadableStrings _gameStateToHumanReadableStringsConverter;
 
         private static readonly ILog Logger = LogManager.GetLogger(typeof (SolveChallenges));
+        private static readonly ILog SolverProgressLogger = LogManager.GetLogger("SolverProgressLogger");
 
         public SolveChallenges(IDetermineIfAStringIsAPlayableWord wordChecker, IDeterminePotentialPlayLocationsForNextWord potentialPlayLocator,
             IDetermineTheTotalPointsAndWordsCreatedByAPlay playAnalyzer, IGenerateWordsToTryForPotentialPlayLocation wordGeneratorForPotentialPlayLocation,
@@ -114,6 +116,24 @@ namespace WordsWithBrutes.Components.Impl
                             {
                                 bestWordThisTurn = wordToTry;
                                 maxPointsForThisTurn = wordsAndPoints.TotalPointsAwarded;
+
+                                if (SolverProgressLogger.IsDebugEnabled)
+                                {
+                                    StringBuilder tileLocations = new StringBuilder();
+                                    foreach (var tile in bestWordThisTurn.TilesPlayed)
+                                    {
+                                        var letter = tile.Letter;
+                                        if (tile.WasBlank)
+                                        {
+                                            letter = letter.ToString().ToLower()[0];
+                                        }
+                                        tileLocations.Append($"Play {letter} at Column {tile.Location.X}, Row {tile.Location.Y}.");
+                                        tileLocations.Append(Environment.NewLine);
+                                    }
+
+                                    SolverProgressLogger.Debug($@"Best play as of now is playing {string.Join(",", bestWordThisTurn.WordsPlayedAndPointsScored.WordsPlayed)} for {bestWordThisTurn.WordsPlayedAndPointsScored.TotalPointsAwarded} total points.
+{tileLocations}");
+                                }                                
                             }
                             break;
 
