@@ -80,8 +80,15 @@ namespace WordsWithBrutes.Components.Impl
             //for the MaxTotalPoints strategy, we'll keep track of all valid words and then loop through them to try them all
             var allTheValidWordsToPursue = new Dictionary<PlayedWord, WordsPlayedAndPointsScored>();
 
+            TileLocation upperLeft = null;
+
             foreach (var play in wordsToPlay)
             {
+                var upperLeftForThisPlay = play.TileLocations.First();
+                if (upperLeftForThisPlay != upperLeft) { 
+                    SolverProgressLogger.Debug($"Trying all words that start at column {upperLeftForThisPlay.X}, row {upperLeftForThisPlay.Y}");
+                    upperLeft = upperLeftForThisPlay;
+                }
                 var wordsToTryHere = _wordGeneratorForPotentialPlayLocation.Generate(gameState, play, 
                     gameState.CurrentRack.Tiles.Take(gameState.Challenge.MaxRackLength).ToArray()).ToList();
 
